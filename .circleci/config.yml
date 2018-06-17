@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  docs:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: Deploying to GitHub Pages
+          command: |
+            git config --global user.email "216188+jdxcode@users.noreply.github.com"
+            git config --global user.name "jdxcode"
+            yarn
+            yarn docs:build
+            cd docs/.vuepress/dist
+            echo 2018.jdxstack.com > CNAME
+            git init
+            git add -A
+            git commit -m 'deploy [ci skip]'
+            git push -f git@github.com:jdxcode/jdxstack-2018.git master:gh-pages
+
+workflows:
+  version: 2
+  docs:
+    jobs:
+      - docs:
+          filters:
+            branches:
+              only:
+                - docs
