@@ -24,7 +24,7 @@ export default class Issues extends Vue {
     {id: 2, msg: 'bar'},
   ]
   createIssue() {
-    console.log('new issue: ' + this.message)
+    //console.log('new issue: ' + this.message)
     this.issues.push({id: 4, msg: this.message})
     this.message = ''
   }

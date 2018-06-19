@@ -6,8 +6,9 @@ jobs:
     docker:
       - image: node:latest
     steps:
-      - run: yarn global add lerna
-      - run: lerna boostrap
+      - run: yarn
+      - run: yarn bootstrap
+      - run: yarn test
 
 workflows:
   version: 2
