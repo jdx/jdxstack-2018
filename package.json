@@ -1,6 +1,9 @@
 {
   "private": true,
   "workspaces": [
-    "frontend"
-  ]
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^2.11.0"
+  }
 }
